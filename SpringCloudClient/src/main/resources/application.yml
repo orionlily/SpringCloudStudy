@@ -1,0 +1,5 @@
+spring:
+  application:
+      name: SpringCloudsClient
+  profiles:
+    active: ${@profileActiv@:dev}
