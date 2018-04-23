@@ -8,6 +8,9 @@ SpringCloud学习
 
 
 参考blog:
-http://blog.csdn.net/forezp/article/details/69808079（博主github:https://github.com/forezp/SpringCloudLearning）
+http://blog.csdn.net/forezp/article/details/69808079
+博主github:
+https://github.com/forezp/SpringCloudLearning
 
+程序猿DD：
 http://blog.didispace.com/springcloud1/
