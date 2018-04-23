@@ -1,5 +1,5 @@
 spring:
   application:
-      name: SpringCloudClient
+      name: SpringCloudConsumer
   profiles:
     active: ${@profileActiv@:dev}
