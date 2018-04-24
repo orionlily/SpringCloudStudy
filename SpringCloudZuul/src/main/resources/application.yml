@@ -1,0 +1,13 @@
+server:
+  port: 4444
+  context-path: /SpringCloudZuul
+  session:
+    timeout: 30
+spring:
+  application:
+    name: SpringCloudZuul
+  profiles:
+    active: ${@profileActiv@:dev}
+
+
+
