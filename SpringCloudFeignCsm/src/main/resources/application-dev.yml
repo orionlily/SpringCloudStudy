@@ -9,7 +9,6 @@ feign:
 
 server:
   port: 5555
-  servlet:
-    context-path: /SpringCloudFeignCsm
-    session:
-      timeout: 30
+  context-path: /SpringCloudFeignCsm
+  session:
+    timeout: 30

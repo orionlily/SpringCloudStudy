@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // 如果需要获得回调触发的原因，可以使用@FeignClient的fallbackFactory属性。
 @FeignClient(value="SPRINGCLOUDCLIENT",fallback = HystrixFallbackMethod.class)
 public interface HelloService {
-    @RequestMapping("/hello/{name}")
+    @RequestMapping("/SpringCloudClient/hello/{name}")
     String sayHello(@PathVariable("name") String name);
 }
 
