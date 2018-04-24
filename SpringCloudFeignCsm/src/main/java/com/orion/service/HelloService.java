@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by orionlily on 2018/4/23.
  */
 
-@FeignClient(value="SPRINGCLOUDSCLIENT")
+@FeignClient(value="SPRINGCLOUDCLIENT")
 public interface HelloService {
     @RequestMapping("/hello/{name}")
     String sayHello(@PathVariable("name") String name);
