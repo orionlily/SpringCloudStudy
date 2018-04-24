@@ -19,6 +19,8 @@ public class SpringCloudClientApplication {
 
 	@Value("${server.port}")
 	String port;
+
+
 	@RequestMapping("/hello/{name}")
 	public String hello(@PathVariable("name")String name) {
 		return "你好，"+name+",端口="+port;

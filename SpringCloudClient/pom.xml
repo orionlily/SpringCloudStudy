@@ -8,7 +8,7 @@
     <artifactId>SpringCloudClient</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>SpringCloudServer</name>
+    <name>SpringCloudClient</name>
     <description>SpringCloud服务提供者</description>
 
     <parent>
@@ -44,11 +44,11 @@
         </dependency>
 
         <!-- 热部署模块 -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
-        </dependency>
+            <optional>true</optional> &lt;!&ndash; 这个需要为 true 热部署才有效 &ndash;&gt;
+        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
@@ -68,9 +68,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
+                <!--<configuration>
                     <fork>true</fork>
-                </configuration>
+                </configuration>-->
             </plugin>
         </plugins>
     </build>
