@@ -4,6 +4,5 @@ eureka:
       defaultZone: http://localhost:9999/eureka/
 server:
   port: 6666
-  context-path: /SpringCloudConsumer
   session:
       timeout: 30
