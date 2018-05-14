@@ -1,0 +1,8 @@
+
+spring:
+  application:
+    name: SpringCloudConfigServer
+  profiles:
+    active: dev
+
+
