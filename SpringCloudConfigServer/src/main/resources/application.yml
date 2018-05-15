@@ -2,7 +2,22 @@
 spring:
   application:
     name: SpringCloudConfigServer
-  profiles:
-    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          default-label: master
+          uri: https://github.com/orionlily/SpringConfigRepo
+          search-paths: repo
+server:
+  port: 3333
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:9999/eureka
+
+
+
+
 
 
