@@ -1,0 +1,22 @@
+server:
+  port: 2222
+
+#spring.cloud.config.discovery.enabled 是从配置中心读取文件。
+#spring.cloud.config.discovery.serviceId 配置中心的servieId，即服务名。
+spring:
+  cloud:
+    config:
+      label: master
+      #加入了spring-cloud-starter-eureka，启动类注解，uri即可注释掉，不再需要ip，取代它的是serverid，从而能形成高可用、集群
+      #uri: http://127.0.0.1:3333
+      profile: dev
+      discovery:
+        enabled: true
+        service-id:  SpringCloudConfigServer
+  application:
+    # 和git里的文件名对应（配置仓库同名）
+    name: SpringCloudConfigClient
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:9999/eureka
