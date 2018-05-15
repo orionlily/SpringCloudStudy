@@ -8,6 +8,12 @@ SpringCloud学习<br/>
   &nbsp;3.2 增加hystrix仪表盘 ①添加依赖②启动类添加注解 注意：不要使用IE<br/>
 4.SpringCloudFeignCsm 服务消费者(使用Feign方式,Feign是对Ribbon的封装) <br/>
 5.SpringCloudZuul 服务路由网关(请求分发)<br/>
+6.SpringCloudConfigServer  （需要新建一个管理配置文件的仓库SpringCloudRepo）<br/> 
+   分布式配置中心组件spring cloud config，它支持配置文件放在在配置服务的内存中，也支持放在远程Git仓库里。引入spring cloud config后，我们的外部配置文件就可以集中放置在一个git仓库里，再新建一个config server，用来管理所有的配置文件  <br/>
+7.SpringCloudConfigClient  <br/>
+    (说明：其实yml和properties文件是一样的原理，主要是说明application和bootstrap的加载顺序。且一个项目上要么yml或者properties，二选一的存在。<br/>
+Bootstrap.yml（bootstrap.properties）在application.yml（application.properties）之前加载，就像application.yml一样，但是用于应用程序上下文的引<br/>导阶段。它通常用于“使用Spring Cloud Config Server时，应在bootstrap.yml中指定spring.application.name和spring.cloud.config.server.git.uri”以及一些加密/解密信息。技术上，bootstrap.yml由父Spring ApplicationContext加载。父ApplicationContext被加载<br/>到使用application.yml的之前。
+<br/>例如，当使用Spring Cloud时，通常从服务器加载“real”配置数据。为了获取URL（和其他连接配置，如密码等），您需要一个较早的或“bootstrap”配置。因<br/>此，您将配置服务器属性放在bootstrap.yml中，该属性用于加载实际配置数据（通常覆盖application.yml [如果存在]中的内容）。)
 
 参考blog:<br/>
 http://blog.csdn.net/forezp/article/details/69808079<br/>
@@ -18,67 +24,67 @@ https://github.com/forezp/SpringCloudLearning<br/>
 http://blog.didispace.com/springcloud1/<br/>
 
 谷歌浏览器限制的一些端口号：
-1：    // tcpmux
-7：    // echo
-9：    // discard
-11：   // systat
-13：   // daytime
-15：   // netstat
-17：   // qotd
-19：   // chargen
-20：   // ftp data
-21：   // ftp access
-22：   // ssh
-23：   // telnet
-25：   // smtp
-37：   // time
-42：   // name
-43：   // nicname
-53：   // domain
-77：   // priv-rjs
-79：   // finger
-87：   // ttylink
-95：   // supdup
-101：  // hostriame
-102：  // iso-tsap
-103：  // gppitnp
-104：  // acr-nema
-109：  // pop2
-110：  // pop3
-111：  // sunrpc
-113：  // auth
-115：  // sftp
-117：  // uucp-path
-119：  // nntp
-123：  // NTP
-135：  // loc-srv /epmap
-139：  // netbios
-143：  // imap2
-179：  // BGP
-389：  // ldap
-465：  // smtp+ssl
-512：  // print / exec
-513：  // login
-514：  // shell
-515：  // printer
-526：  // tempo
-530：  // courier
-531：  // chat
-532：  // netnews
-540：  // uucp
-556：  // remotefs
-563：  // nntp+ssl
-587：  // stmp?
-601：  // ??
-636：  // ldap+ssl
-993：  // ldap+ssl
-995：  // pop3+ssl
-2049： // nfs
-3659： // apple-sasl / PasswordServer
-4045： // lockd
-6000： // X11
-6665： // Alternate IRC [Apple addition]
-6666： // Alternate IRC [Apple addition]
-6667： // Standard IRC [Apple addition]
-6668： // Alternate IRC [Apple addition]
-6669： // Alternate IRC [Apple addition]
+1：    // tcpmux  <br/>
+7：    // echo    <br/>
+9：    // discard    <br/>    <br/>
+11：   // systat    <br/>
+13：   // daytime    <br/>
+15：   // netstat    <br/>
+17：   // qotd    <br/>
+19：   // chargen    <br/>
+20：   // ftp data    <br/>
+21：   // ftp access    <br/>
+22：   // ssh    <br/>
+23：   // telnet    <br/>
+25：   // smtp    <br/>
+37：   // time    <br/>
+42：   // name    <br/>
+43：   // nicname    <br/>
+53：   // domain    <br/>
+77：   // priv-rjs    <br/>
+79：   // finger    <br/>
+87：   // ttylink    <br/>
+95：   // supdup    <br/>
+101：  // hostriame    <br/>
+102：  // iso-tsap    <br/>
+103：  // gppitnp    <br/>
+104：  // acr-nema    <br/>
+109：  // pop2    <br/>
+110：  // pop3    <br/>
+111：  // sunrpc    <br/>
+113：  // auth    <br/>
+115：  // sftp    <br/>
+117：  // uucp-path    <br/>
+119：  // nntp    <br/>
+123：  // NTP    <br/>
+135：  // loc-srv /epmap    <br/>
+139：  // netbios    <br/>
+143：  // imap2    <br/>
+179：  // BGP    <br/>
+389：  // ldap    <br/>
+465：  // smtp+ssl    <br/>
+512：  // print / exec    <br/>
+513：  // login    <br/>
+514：  // shell    <br/>
+515：  // printer    <br/>
+526：  // tempo    <br/>
+530：  // courier    <br/>
+531：  // chat    <br/>
+532：  // netnews    <br/>
+540：  // uucp    <br/>
+556：  // remotefs    <br/>
+563：  // nntp+ssl    <br/>
+587：  // stmp?    <br/>
+601：  // ??    <br/>
+636：  // ldap+ssl    <br/>
+993：  // ldap+ssl    <br/>
+995：  // pop3+ssl    <br/>
+2049： // nfs    <br/>
+3659： // apple-sasl / PasswordServer    <br/>
+4045： // lockd    <br/>
+6000： // X11    <br/>
+6665： // Alternate IRC [Apple addition]    <br/>
+6666： // Alternate IRC [Apple addition]    <br/>
+6667： // Standard IRC [Apple addition]    <br/>
+6668： // Alternate IRC [Apple addition]    <br/>
+6669： // Alternate IRC [Apple addition]    <br/>
