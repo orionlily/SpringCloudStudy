@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: SpringCloudSleuthPro
+  zipkin:
+      base-url: http://127.0.0.1:1111
+server:
+  port: 5432
+eureka:
+  client:
+    service-url:
+          defaultZone: http://127.0.0.1:9999/eureka/
+
+feign:
+  hystrix:
+     enabled: true;
