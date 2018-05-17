@@ -1,0 +1,31 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+  application:
+    name: SpringCloudBusClient
+  cloud:
+    config:
+      label: master
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: SpringCloudConfigServer
+server:
+  port: 5098
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:9999/eureka/
+#actuator是否需要安全保证,refresh时关闭安全验证
+management:
+  security:
+    enabled: false
+
+
+
+
+
+
+
+
