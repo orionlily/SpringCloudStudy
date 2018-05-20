@@ -3,6 +3,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:9999/eureka/
 server:
-  port: 6666
+  #chrome不能用6666端口
+  port: 6543
   session:
       timeout: 30
