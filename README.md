@@ -14,6 +14,7 @@ SpringCloud学习<br/>
     (说明：其实yml和properties文件是一样的原理，主要是说明application和bootstrap的加载顺序。且一个项目上要么yml或者properties，二选一的存在。<br/>
 Bootstrap.yml（bootstrap.properties）在application.yml（application.properties）之前加载，就像application.yml一样，但是用于应用程序上下文的引<br/>导阶段。它通常用于“使用Spring Cloud Config Server时，应在bootstrap.yml中指定spring.application.name和spring.cloud.config.server.git.uri”以及一些加密/解密信息。技术上，bootstrap.yml由父Spring ApplicationContext加载。父ApplicationContext被加载<br/>到使用application.yml的之前。
 <br/>例如，当使用Spring Cloud时，通常从服务器加载“real”配置数据。为了获取URL（和其他连接配置，如密码等），您需要一个较早的或“bootstrap”配置。因<br/>此，您将配置服务器属性放在bootstrap.yml中，该属性用于加载实际配置数据（通常覆盖application.yml [如果存在]中的内容）。)
+
 8.SpringCloudBus 消息总线
 如果不加入消息总线，一旦配置文件有变化，则需要重启配置客户端，才能读到最新的配置信息。而加入Bus之后，
 我们只需要发送post请求：http://IP:端口/bus/refresh，你会发现config-client会重新读取配置文件
