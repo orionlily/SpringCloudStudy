@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SpringCcloudConfigServer</name>
+	<name>SpringCloudConfigServer</name>
 	<description>SpringCloud服务配置仓库</description>
 
 	<parent>
