@@ -26,6 +26,7 @@ SpringCloudSleuthPro和SpringCloudSleuthRe两个服务，相互调用,注意两�
 10.SpringCloudTurbine 监控数据聚合(将所有HystrixDashboard集合一起看)
 将所有配置了dashboard的应用一起监控，这样就不用每个应用都打开页面监控数据。
 
+11.SpringCloudConsul 不同于Eureka的另外一种服务注册中心，需要下载consul客户端，建议0.9版本
 <br/>参考blog:<br/>
 http://blog.csdn.net/forezp/article/details/69808079<br/>
 博主github:<br/>
